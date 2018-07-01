@@ -26,7 +26,7 @@ namespace June2018.Models
                         Name = "Green Hat",
                         Category = "Accessories",
                         Description = "Fitted cap",
-                        //DateAdded = DateTime.Parse("2018-6-01"),
+                        DateAdded = DateTime.Parse("2018-6-01"),
                         Price = 12.99M,
                         Cost = 4.99M,
                         Quantity = 99
@@ -38,7 +38,7 @@ namespace June2018.Models
                         Name = "Blue Hat",
                         Category = "Accessories",
                         Description = "Fitted cap",
-                        //DateAdded = DateTime.Parse("2018-6-01"),
+                        DateAdded = DateTime.Parse("2018-6-01"),
                         Price = 12.99M,
                         Cost = 4.99M,
                         Quantity = 95
@@ -50,7 +50,7 @@ namespace June2018.Models
                         Name = "Purple Polo",
                         Category = "Clothing",
                         Description = "Polo shirt",
-                        //DateAdded = DateTime.Parse("2018-6-01"),
+                        DateAdded = DateTime.Parse("2018-6-01"),
                         Price = 14.99M,
                         Cost = 5.99M,
                         Quantity = 50
@@ -62,7 +62,7 @@ namespace June2018.Models
                         Name = "Bottle Caps",
                         Category = "Candy",
                         Description = "Sugar rush",
-                        //DateAdded = DateTime.Parse("2018-6-01"),
+                        DateAdded = DateTime.Parse("2018-6-01"),
                         Price = 1.39M,
                         Cost = 0.49M,
                         Quantity = 200

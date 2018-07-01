@@ -41,7 +41,7 @@ namespace June2018.Controllers
 
             var productCategoryVM = new ProductCategoryViewModel();
             productCategoryVM.categories = new SelectList(await categoryQry.Distinct().ToListAsync());
-            productCategoryVM.products = await products.ToListAsync();
+            productCategoryVM.products = await products.OrderBy(m => m.Name).ToListAsync();
 
             return View(productCategoryVM);
         }
@@ -77,6 +77,9 @@ namespace June2018.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Set DateAdded to today's date
+                product.DateAdded = DateTime.Now;
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -100,10 +103,10 @@ namespace June2018.Controllers
             return View(product);
         }
 
-        // POST: Products/Edit/5
+        // POST: Products/Edit/Id
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Sku,Name,Category,Description,Quantity,Cost,Price")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Sku,Name,Category,Description,Quantity,Cost,Price,DateAdded")] Product product)
         {
             if (id != product.ID)
             {
@@ -114,6 +117,11 @@ namespace June2018.Controllers
             {
                 try
                 {
+                    //// Set DateAdded to today if no DateAdded is null
+                    //if (!product.DateAdded.HasValue)
+                    //{
+                    //    product.DateAdded = DateTime.Now;
+                    //}
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }

@@ -4,14 +4,16 @@ using June2018.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace June2018.Migrations
 {
     [DbContext(typeof(June2018Context))]
-    partial class June2018ContextModelSnapshot : ModelSnapshot
+    [Migration("20180701215145_DateAdded")]
+    partial class DateAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,7 +33,7 @@ namespace June2018.Migrations
                     b.Property<decimal>("Cost")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.Property<DateTime?>("DateAdded");
+                    b.Property<DateTime>("DateAdded");
 
                     b.Property<string>("Description");
 
